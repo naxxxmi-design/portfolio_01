@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="肌にも地球にもやさしいオーガニックコスメ PureMélange。自然の力を取り入れたスキンケアを。">
+<title>PureMélange | 肌にも、地球にも、やさしい選択を。</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');
+
+:root {
+  --green: #254b35;
+  --deep-green: #173b29;
+  --light-green: #e8eee5;
+  --cream: #f8f8f1;
+  --text: #26392d;
+  --gold: #b99a55;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.serif {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+/* ガラス表現 */
+.glass {
+  background: rgba(255, 255, 255, .42);
+  border: 1px solid rgba(255, 255, 255, .78);
+  box-shadow:
+    0 12px 40px rgba(35, 65, 43, .09),
+    inset 0 1px 1px rgba(255, 255, 255, .8);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 28px;
+}
+
+/* ヘッダー */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 22px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  color: var(--deep-green);
+  letter-spacing: .03em;
+}
+
+.logo span {
+  margin-right: 8px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 12px;
+}
+
+nav a:not(.nav-cta):hover {
+  opacity: .6;
+}
+
+.nav-cta {
+  padding: 10px 22px;
+  border-radius: 30px;
+  color: white;
+  background: var(--green);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ボタン */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 34px;
+  min-width: 220px;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(135deg, #426c4c, #173b29);
+  box-shadow: 0 7px 18px rgba(30, 65, 40, .2);
+  font-size: 14px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(30, 65, 40, .25);
+}
+
+.button-light {
+  color: var(--green);
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.9);
+}
+
+/* ファーストビュー */
+.hero {
+  min-height: 760px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(239,245,234,.95) 0%,
+    rgba(239,245,234,.76) 42%,
+    rgba(239,245,234,.05) 100%),
+    url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1800&q=85')
+    center 42% / cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.65);
+  right: -100px;
+  bottom: -220px;
+  box-shadow: 0 0 50px rgba(255,255,255,.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 90%);
+  margin: 100px auto 70px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: .22em;
+  color: #66816a;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: .06em;
+  color: #1e3d2b;
+  margin-bottom: 22px;
+}
+
+.hero-copy {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  margin-bottom: 34px;
+}
+
+.hero-note {
+  font-size: 12px;
+  margin-top: 13px;
+  color: #60705f;
+}
+
+/* セクション共通 */
+section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: .06em;
+}
+
+.section-heading p {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #718071;
+}
+
+/* 3つの理由 */
+.reasons {
+  position: relative;
+  z-index: 3;
+  margin-top: -55px;
+  padding: 0 0 40px;
+}
+
+.reason-panel {
+  padding: 42px 34px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.reason-item {
+  padding: 10px 18px;
+}
+
+.reason-icon {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.9);
+  font-size: 28px;
+  box-shadow: 0 5px 20px rgba(35,65,43,.08);
+}
+
+.reason-item h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.reason-item p {
+  font-size: 12px;
+  color: #69796b;
+}
+
+/* 商品紹介 */
+.products {
+  background:
+    radial-gradient(circle at 10% 20%, #edf3e9, transparent 35%),
+    #f8f8f1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+}
+
+.product-card {
+  padding: 22px;
+  background: rgba(255,255,255,.75);
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(35,65,43,.07);
+  transition: transform .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-image {
+  height: 310px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #e8eee5;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 25px 10px 10px;
+}
+
+.product-label {
+  font-size: 10px;
+  color: #83947e;
+  letter-spacing: .16em;
+}
+
+.product-info h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.product-info p {
+  font-size: 13px;
+  color: #69796b;
+}
+
+.product-price {
+  font-size: 17px;
+  margin-top: 16px;
+  color: var(--green);
+}
+
+/* ブランドメッセージ */
+.message {
+  background:
+    linear-gradient(rgba(25,55,35,.55), rgba(25,55,35,.55)),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85')
+    center / cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.message h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.message p {
+  font-size: 14px;
+  line-height: 2.2;
+}
+
+/* お客様の声 */
+.voices {
+  background: #f0f3eb;
+}
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.voice-card {
+  padding: 28px;
+  background: rgba(255,255,255,.8);
+  border: 1px solid white;
+  border-radius: 22px;
+}
+
+.voice-stars {
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.voice-card p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.voice-card small {
+  display: block;
+  margin-top: 18px;
+  font-size: 11px;
+  color: #879184;
+}
+
+/* FAQ */
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #dce3d8;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 5px;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.faq-question span:last-child {
+  font-size: 20px;
+  color: #718b72;
+  transition: transform .3s;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 5px 22px;
+  font-size: 13px;
+  color: #6c786d;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-question span:last-child {
+  transform: rotate(45deg);
+}
+
+/* 最後のキャンペーン */
+.campaign {
+  padding: 75px 0;
+  background:
+    radial-gradient(circle at 80% 20%, #e0eadb, transparent 35%),
+    #eaf0e6;
+}
+
+.campaign-panel {
+  padding: 48px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.campaign-label {
+  font-size: 12px;
+  letter-spacing: .15em;
+  color: #6b806b;
+}
+
+.campaign h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.campaign-copy {
+  font-size: 13px;
+  color: #687868;
+}
+
+footer {
+  padding: 45px 5%;
+  background: #f7f8f3;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 11px;
+  margin-bottom: 25px;
+}
+
+footer small {
+  font-size: 10px;
+  color: #899188;
+}
+
+/* スマートフォン */
+@media (max-width: 768px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 5%;
+    width: 90%;
+    padding: 25px;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255,255,255,.94);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(20,50,30,.1);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 720px;
+    align-items: flex-end;
+    background:
+      linear-gradient(0deg, rgba(239,245,234,.98) 0%,
+      rgba(239,245,234,.75) 48%,
+      rgba(239,245,234,.05) 100%),
+      url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=85')
+      center top / cover;
+  }
+
+  .hero-content {
+    margin: 0 auto 90px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  section {
+    padding: 72px 0;
+  }
+
+  .reason-panel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .product-grid,
+  .voice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    height: 260px;
+  }
+
+  .campaign-panel {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 20px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo"><span>♧</span>PureMélange</a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+
+  <nav id="mainNav">
+    <a href="#concept">ブランドストーリー</a>
+    <a href="#products">商品一覧</a>
+    <a href="#reasons">こだわり</a>
+    <a href="#voices">お客様の声</a>
+    <a href="#faq">よくあるご質問</a>
+    <a href="#campaign" class="nav-cta">商品を見る →</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">PURE BEAUTY, PURE NATURE</p>
+      <h1>肌にも、地球にも、<br>やさしい選択を。</h1>
+      <p class="hero-copy">
+        美しさと、やさしさを両立した<br>
+        オーガニックスキンケア。
+      </p>
+      <a href="#products" class="button">商品を見てみる <span>→</span></a>
+      <p class="hero-note">自然の恵みを、毎日のスキンケアに。</p>
+    </div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section class="reasons" id="reasons">
+    <div class="container glass reason-panel">
+      <div class="reason-item">
+        <div class="reason-icon">♧</div>
+        <h3>植物由来のこだわり</h3>
+        <p>原料選びから製造まで、<br>肌へのやさしさを大切に。</p>
+      </div>
+
+      <div class="reason-item">
+        <div class="reason-icon">◯</div>
+        <h3>毎日にうるおいを</h3>
+        <p>乾燥が気になる肌に、<br>うるおいを与えるケア。</p>
+      </div>
+
+      <div class="reason-item">
+        <div class="reason-icon">🌱</div>
+        <h3>環境への思いやり</h3>
+        <p>素材やパッケージにも、<br>環境への配慮を。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 商品紹介 -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">OUR COLLECTION</p>
+        <h2>自然の力で、毎日を美しく。</h2>
+        <p>肌と向き合う、シンプルなスキンケア習慣。</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85" alt="美容液のイメージ">
+          </div>
+          <div class="product-info">
+            <span class="product-label">DAILY SKINCARE 01</span>
+            <h3>オーガニック セラム</h3>
+            <p>肌にうるおいを与え、なめらかな肌印象へ導く美容液。</p>
+            <div class="product-price">商品価格：価格を入力してください</div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85" alt="保湿クリームのイメージ">
+          </div>
+          <div class="product-info">
+            <span class="product-label">DAILY SKINCARE 02</span>
+            <h3>オーガニック クリーム</h3>
+            <p>乾燥しがちな肌をうるおいで包み込む保湿クリーム。</p>
+            <div class="product-price">商品価格：価格を入力してください</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ブランドメッセージ -->
+  <section class="message" id="concept">
+    <p class="eyebrow" style="color:#e3eadf;">OUR PHILOSOPHY</p>
+    <h2>美しさは、自然とともに。</h2>
+    <p>
+      肌をいたわること。自然を大切にすること。<br>
+      そのどちらも、あきらめない選択を。<br>
+      PureMélangeは、毎日のケアを通じて<br>
+      自分にも地球にも心地よい暮らしを提案します。
+    </p>
+  </section>
+
+  <!-- お客様の声 -->
+  <section class="voices" id="voices">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">CUSTOMER VOICE</p>
+        <h2>お客様の声</h2>
+        <p>毎日のスキンケアに寄せられたご感想</p>
+      </div>
+
+      <div class="voice-grid">
+        <article class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p>「使い心地が心地よく、毎日のスキンケアが楽しみになりました。」</p>
+          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
+        </article>
+
+        <article class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p>「シンプルなケアを続けたいと思い、使い始めました。」</p>
+          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
+        </article>
+
+        <article class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p>「パッケージも素敵で、洗面台に置くのがうれしいです。」</p>
+          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>よくあるご質問</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>どのような肌質の人におすすめですか？</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer">
+            商品ごとの対象肌質や使用上の注意をご確認ください。
+            肌に合うか心配な場合は、使用前に目立たない部分でお試しください。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>商品の使用方法を教えてください。</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer">
+            商品ごとの正しい使用方法をこちらに記載してください。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>送料や配送について教えてください。</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer">
+            送料・配送日数・配送地域など、実際の配送条件を記載してください。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 購入CTA -->
+  <section class="campaign" id="campaign">
+    <div class="container glass campaign-panel">
+      <div>
+        <p class="campaign-label">YOUR NEW SKINCARE ROUTINE</p>
+        <h2>今日から、心地よい肌習慣を。</h2>
+        <p class="campaign-copy">
+          PureMélangeのスキンケアを、あなたの毎日に。
+        </p>
+      </div>
+      <a href="#products" class="button">商品を選ぶ <span>→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">♧ PureMélange</div>
+  <div class="footer-links">
+    <a href="#concept">ブランドについて</a>
+    <a href="#products">商品一覧</a>
+    <a href="#">特定商取引法に基づく表記</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">お問い合わせ</a>
+  </div>
+  <small>© 2026 PureMélange. All rights reserved.</small>
+</footer>
+
+<script>
+// スマートフォン用メニュー
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', isOpen);
+  menuToggle.textContent = isOpen ? '×' : '☰';
+});
+
+// メニュー選択後に閉じる
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+// FAQの開閉
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.faq-item');
+    item.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
