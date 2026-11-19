@@ -1,27 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="肌にも地球にもやさしいオーガニックコスメ PureMélange。自然の力を取り入れたスキンケアを。">
 <title>PureMélange | 肌にも、地球にも、やさしい選択を。</title>
+<meta name="description" content="自然の恵みを取り入れたオーガニックスキンケア PureMélange。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');
-
 :root {
-  --green: #254b35;
-  --deep-green: #173b29;
-  --light-green: #e8eee5;
-  --cream: #f8f8f1;
-  --text: #26392d;
-  --gold: #b99a55;
+  --green: #244a32;
+  --green-dark: #173a27;
+  --green-light: #dce9d9;
+  --cream: #f7f8f0;
+  --text: #253b2d;
+  --gold: #bd9c50;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -29,10 +32,10 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
   color: var(--text);
   background: var(--cream);
-  line-height: 1.8;
+  font-family: "Noto Serif JP", serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -40,30 +43,61 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.serif {
-  font-family: 'Noto Serif JP', serif;
+button {
+  font: inherit;
 }
 
 .container {
-  width: min(1120px, 90%);
-  margin: 0 auto;
+  width: min(1160px, 90%);
+  margin: auto;
 }
 
-/* ガラス表現 */
+/* 背景の植物と光 */
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(191,218,183,.48), transparent 36%),
+    radial-gradient(ellipse at 90% 45%, rgba(206,224,195,.45), transparent 40%),
+    linear-gradient(135deg, #f8faf3, #eaf1e6 55%, #f8f8f1);
+}
+
+.page-background::before,
+.page-background::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.page-background::before {
+  top: 18%;
+  left: -240px;
+}
+
+.page-background::after {
+  right: -250px;
+  top: 55%;
+}
+
+/* リキッドグラス */
 .glass {
-  background: rgba(255, 255, 255, .42);
-  border: 1px solid rgba(255, 255, 255, .78);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.66),
+    rgba(255,255,255,.28)
+  );
+  border: 1px solid rgba(255,255,255,.85);
   box-shadow:
-    0 12px 40px rgba(35, 65, 43, .09),
-    inset 0 1px 1px rgba(255, 255, 255, .8);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-radius: 28px;
+    0 15px 40px rgba(39,76,47,.10),
+    inset 0 1px 2px rgba(255,255,255,.95),
+    inset 0 -1px 1px rgba(255,255,255,.4);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
 }
 
 /* ヘッダー */
@@ -71,525 +105,678 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 20;
   width: 100%;
-  padding: 22px 5%;
+  height: 78px;
+  padding: 0 4%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 24px;
-  color: var(--deep-green);
-  letter-spacing: .03em;
-}
-
-.logo span {
-  margin-right: 8px;
-}
-
-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
-  font-size: 12px;
+  gap: 9px;
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  color: var(--green-dark);
 }
 
-nav a:not(.nav-cta):hover {
-  opacity: .6;
+.logo-icon {
+  font-size: 30px;
 }
 
-.nav-cta {
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 11px;
+}
+
+.nav a {
+  transition: opacity .3s;
+}
+
+.nav a:hover {
+  opacity: .55;
+}
+
+.cart-button {
   padding: 10px 22px;
   border-radius: 30px;
   color: white;
-  background: var(--green);
+  background: linear-gradient(135deg, #759776, #254b32);
+  box-shadow: 0 5px 15px rgba(32,73,43,.2);
 }
 
-.menu-toggle {
+.menu-button {
   display: none;
-  border: 0;
-  background: transparent;
-  color: var(--green);
+  border: none;
+  background: none;
   font-size: 26px;
+  color: var(--green);
   cursor: pointer;
 }
 
-/* ボタン */
-.button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 34px;
-  min-width: 220px;
-  border-radius: 50px;
-  color: white;
-  background: linear-gradient(135deg, #426c4c, #173b29);
-  box-shadow: 0 7px 18px rgba(30, 65, 40, .2);
-  font-size: 14px;
-  transition: transform .3s, box-shadow .3s;
-}
-
-.button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(30, 65, 40, .25);
-}
-
-.button-light {
-  color: var(--green);
-  background: rgba(255,255,255,.75);
-  border: 1px solid rgba(255,255,255,.9);
-}
-
-/* ファーストビュー */
+/* メインビジュアル */
 .hero {
-  min-height: 760px;
+  min-height: 570px;
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
+  overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(239,245,234,.95) 0%,
-    rgba(239,245,234,.76) 42%,
-    rgba(239,245,234,.05) 100%),
-    url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1800&q=85')
+    linear-gradient(
+      90deg,
+      rgba(239,246,233,.96) 0%,
+      rgba(239,246,233,.82) 35%,
+      rgba(239,246,233,.05) 72%
+    ),
+    url("https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1800&q=90")
     center 42% / cover;
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 580px;
+  height: 580px;
+  right: 1%;
+  top: 40px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,.65);
-  right: -100px;
-  bottom: -220px;
-  box-shadow: 0 0 50px rgba(255,255,255,.4);
+  box-shadow:
+    0 0 60px rgba(255,255,255,.45),
+    inset 0 0 40px rgba(255,255,255,.25);
+  pointer-events: none;
 }
 
 .hero-content {
+  width: min(1160px, 90%);
+  margin: 70px auto 30px;
   position: relative;
   z-index: 2;
-  width: min(1120px, 90%);
-  margin: 100px auto 70px;
-}
-
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: .22em;
-  color: #66816a;
-  margin-bottom: 22px;
 }
 
 .hero h1 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(36px, 5vw, 62px);
-  line-height: 1.55;
+  font-size: clamp(34px, 4.3vw, 55px);
   font-weight: 400;
-  letter-spacing: .06em;
-  color: #1e3d2b;
-  margin-bottom: 22px;
+  line-height: 1.55;
+  letter-spacing: .07em;
+  color: var(--green-dark);
 }
 
 .hero-copy {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 16px;
-  margin-bottom: 34px;
+  font-size: 15px;
+  line-height: 2;
+  margin: 24px 0 26px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-width: 220px;
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: white;
+  font-size: 14px;
+  background: linear-gradient(135deg, #668e67, #173e27);
+  box-shadow:
+    0 6px 15px rgba(28,70,40,.24),
+    inset 0 1px 2px rgba(255,255,255,.45);
+  transition: .3s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(28,70,40,.25);
 }
 
 .hero-note {
+  margin: 14px 0 0 30px;
   font-size: 12px;
-  margin-top: 13px;
-  color: #60705f;
 }
 
-/* セクション共通 */
-section {
-  padding: 100px 0;
+/* ガラス装飾の泡 */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.9);
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(255,255,255,.9),
+    rgba(255,255,255,.12) 65%,
+    rgba(176,211,183,.2)
+  );
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,.8),
+    0 4px 20px rgba(255,255,255,.5);
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 52px;
+.bubble.one {
+  width: 50px;
+  height: 50px;
+  top: 16%;
+  left: 43%;
 }
 
-.section-heading .eyebrow {
-  margin-bottom: 10px;
+.bubble.two {
+  width: 26px;
+  height: 26px;
+  top: 35%;
+  left: 51%;
+  animation-delay: -2s;
 }
 
-.section-heading h2 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 400;
-  letter-spacing: .06em;
+.bubble.three {
+  width: 38px;
+  height: 38px;
+  right: 8%;
+  top: 22%;
+  animation-delay: -3s;
 }
 
-.section-heading p {
-  margin-top: 14px;
-  font-size: 13px;
-  color: #718071;
+.bubble.four {
+  width: 22px;
+  height: 22px;
+  left: 30%;
+  bottom: 15%;
+  animation-delay: -1s;
 }
 
-/* 3つの理由 */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 選ばれる3つの理由 */
 .reasons {
   position: relative;
-  z-index: 3;
-  margin-top: -55px;
-  padding: 0 0 40px;
+  z-index: 4;
+  margin-top: -40px;
 }
 
 .reason-panel {
-  padding: 42px 34px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  text-align: center;
+  padding: 24px 35px 30px;
+  border-radius: 35px;
+  position: relative;
 }
 
-.reason-item {
-  padding: 10px 18px;
+.section-mini-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.reason {
+  text-align: center;
+  padding: 8px 15px;
+}
+
+.reason + .reason {
+  border-left: 1px solid rgba(91,119,91,.35);
 }
 
 .reason-icon {
   width: 66px;
   height: 66px;
   border-radius: 50%;
-  margin: 0 auto 20px;
+  margin: 0 auto 12px;
   display: grid;
   place-items: center;
+  font-size: 27px;
   color: var(--green);
   background: rgba(255,255,255,.65);
-  border: 1px solid rgba(255,255,255,.9);
-  font-size: 28px;
-  box-shadow: 0 5px 20px rgba(35,65,43,.08);
+  border: 1px solid white;
+  box-shadow: 0 4px 16px rgba(40,75,45,.10);
 }
 
-.reason-item h3 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 17px;
-  margin-bottom: 10px;
+.reason h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-.reason-item p {
-  font-size: 12px;
-  color: #69796b;
+.reason p {
+  font-size: 11px;
+  line-height: 1.9;
 }
 
 /* 商品紹介 */
-.products {
-  background:
-    radial-gradient(circle at 10% 20%, #edf3e9, transparent 35%),
-    #f8f8f1;
+.product-section {
+  padding: 45px 0 55px;
+  position: relative;
 }
 
-.product-grid {
+.product-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 34px;
+  grid-template-columns: .9fr 1.4fr;
+  gap: 25px;
+  align-items: center;
 }
 
-.product-card {
-  padding: 22px;
-  background: rgba(255,255,255,.75);
-  border-radius: 24px;
-  box-shadow: 0 10px 35px rgba(35,65,43,.07);
-  transition: transform .3s;
+.product-copy {
+  padding: 20px 0;
 }
 
-.product-card:hover {
-  transform: translateY(-6px);
+.product-copy .eyebrow {
+  font-size: 13px;
+  letter-spacing: .12em;
+}
+
+.product-copy h2 {
+  font-size: clamp(29px, 3.6vw, 43px);
+  line-height: 1.55;
+  font-weight: 400;
+  margin: 12px 0 18px;
+  color: var(--green-dark);
+}
+
+.product-copy p {
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.product-copy .button {
+  margin-top: 25px;
+}
+
+.product-display {
+  min-height: 370px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+  background:
+    radial-gradient(ellipse at 50% 80%, rgba(255,255,255,.9), transparent 65%);
 }
 
 .product-image {
-  height: 310px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #e8eee5;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
+  width: 42%;
+  height: 290px;
   object-fit: cover;
+  border-radius: 18px;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 12px 15px rgba(35,55,30,.15));
 }
 
-.product-info {
-  padding: 25px 10px 10px;
+.product-image.jar {
+  height: 225px;
+  width: 42%;
 }
 
-.product-label {
-  font-size: 10px;
-  color: #83947e;
-  letter-spacing: .16em;
-}
-
-.product-info h3 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 23px;
-  font-weight: 400;
-  margin: 8px 0;
-}
-
-.product-info p {
-  font-size: 13px;
-  color: #69796b;
-}
-
-.product-price {
-  font-size: 17px;
-  margin-top: 16px;
-  color: var(--green);
-}
-
-/* ブランドメッセージ */
-.message {
-  background:
-    linear-gradient(rgba(25,55,35,.55), rgba(25,55,35,.55)),
-    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85')
-    center / cover;
-  color: white;
+.sales-badge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 120px 20px;
+  background: rgba(255,255,255,.48);
+  border: 1px solid rgba(255,255,255,.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(40,70,40,.1);
 }
 
-.message h2 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(28px, 4vw, 42px);
+.sales-badge small {
+  font-size: 12px;
+}
+
+.sales-badge strong {
+  color: var(--green);
+  font-size: 34px;
   font-weight: 400;
-  line-height: 1.8;
-  margin-bottom: 22px;
+  line-height: 1.2;
 }
 
-.message p {
-  font-size: 14px;
-  line-height: 2.2;
+.sales-badge span {
+  font-size: 12px;
+}
+
+.product-footnote {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 9px;
+  color: #657365;
 }
 
 /* お客様の声 */
 .voices {
-  background: #f0f3eb;
+  padding: 40px 0 55px;
+}
+
+.line-title {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 21px;
+}
+
+.line-title::before,
+.line-title::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(85,112,83,.35);
 }
 
 .voice-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 20px;
 }
 
 .voice-card {
-  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 18px;
+  border-radius: 16px;
   background: rgba(255,255,255,.8);
-  border: 1px solid white;
-  border-radius: 22px;
+  box-shadow: 0 5px 20px rgba(35,65,43,.05);
 }
 
-.voice-stars {
-  color: var(--gold);
-  letter-spacing: 3px;
-  margin-bottom: 15px;
+.voice-avatar {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .voice-card p {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 14px;
-  line-height: 2;
+  font-size: 12px;
+  line-height: 1.8;
 }
 
 .voice-card small {
+  font-size: 10px;
   display: block;
-  margin-top: 18px;
-  font-size: 11px;
-  color: #879184;
+  margin-top: 5px;
 }
 
-/* FAQ */
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
+.stars {
+  color: #c5a24e;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
-.faq-item {
-  border-bottom: 1px solid #dce3d8;
-}
-
-.faq-question {
-  width: 100%;
-  padding: 22px 5px;
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.faq-question span:last-child {
-  font-size: 20px;
-  color: #718b72;
-  transition: transform .3s;
-}
-
-.faq-answer {
-  display: none;
-  padding: 0 5px 22px;
-  font-size: 13px;
-  color: #6c786d;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
-.faq-item.active .faq-question span:last-child {
-  transform: rotate(45deg);
-}
-
-/* 最後のキャンペーン */
+/* 初回限定キャンペーン */
 .campaign {
-  padding: 75px 0;
-  background:
-    radial-gradient(circle at 80% 20%, #e0eadb, transparent 35%),
-    #eaf0e6;
+  padding: 10px 0 55px;
 }
 
 .campaign-panel {
-  padding: 48px 35px;
+  min-height: 155px;
+  padding: 25px 45px;
+  border-radius: 38px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 20px;
 }
 
-.campaign-label {
-  font-size: 12px;
-  letter-spacing: .15em;
-  color: #6b806b;
+.campaign-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.campaign h2 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(28px, 4vw, 44px);
+.campaign-ribbon {
+  background: #71936d;
+  color: white;
+  padding: 6px 20px;
+  transform: rotate(-5deg);
+  font-size: 14px;
+}
+
+.discount {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(48px, 6vw, 85px);
+  color: var(--green);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.discount span {
+  font-size: .48em;
+}
+
+.campaign-copy h3 {
+  font-size: 17px;
   font-weight: 400;
-  margin: 8px 0;
+  margin-bottom: 5px;
 }
 
-.campaign-copy {
-  font-size: 13px;
-  color: #687868;
+.campaign-copy p {
+  font-size: 12px;
 }
 
-footer {
-  padding: 45px 5%;
-  background: #f7f8f3;
+.campaign-action {
   text-align: center;
 }
 
+.campaign-action .button {
+  min-width: 240px;
+}
+
+.campaign-action small {
+  display: block;
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+/* フッター */
+footer {
+  background: rgba(255,255,255,.85);
+  padding: 30px 4% 22px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .footer-logo {
-  font-family: 'Noto Serif JP', serif;
+  font-family: "Playfair Display", serif;
   font-size: 23px;
-  margin-bottom: 20px;
 }
 
 .footer-links {
   display: flex;
-  justify-content: center;
+  gap: 22px;
   flex-wrap: wrap;
-  gap: 24px;
-  font-size: 11px;
-  margin-bottom: 25px;
+  font-size: 10px;
 }
 
-footer small {
-  font-size: 10px;
-  color: #899188;
+.socials {
+  display: flex;
+  gap: 18px;
+  font-family: Arial,sans-serif;
+  font-size: 20px;
+}
+
+.copyright {
+  text-align: center;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  margin-top: 24px;
 }
 
 /* スマートフォン */
-@media (max-width: 768px) {
+@media(max-width: 768px) {
   header {
-    padding: 18px 5%;
+    height: 65px;
+    padding: 0 5%;
   }
 
   .logo {
     font-size: 20px;
   }
 
-  .menu-toggle {
+  .menu-button {
     display: block;
   }
 
-  nav {
+  .nav {
     display: none;
     position: absolute;
     top: 65px;
-    left: 5%;
-    width: 90%;
+    left: 0;
+    width: 100%;
     padding: 25px;
+    background: rgba(250,252,247,.97);
+    backdrop-filter: blur(15px);
     flex-direction: column;
-    gap: 20px;
-    background: rgba(255,255,255,.94);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(20,50,30,.1);
+    gap: 18px;
   }
 
-  nav.open {
+  .nav.open {
     display: flex;
   }
 
   .hero {
-    min-height: 720px;
+    min-height: 670px;
     align-items: flex-end;
     background:
-      linear-gradient(0deg, rgba(239,245,234,.98) 0%,
-      rgba(239,245,234,.75) 48%,
-      rgba(239,245,234,.05) 100%),
-      url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=85')
+      linear-gradient(
+        0deg,
+        rgba(239,246,233,.98) 0%,
+        rgba(239,246,233,.78) 48%,
+        rgba(239,246,233,.05) 100%
+      ),
+      url("https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1000&q=85")
       center top / cover;
   }
 
   .hero-content {
-    margin: 0 auto 90px;
+    margin-bottom: 75px;
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 35px;
   }
 
-  section {
-    padding: 72px 0;
+  .hero-copy {
+    font-size: 13px;
+  }
+
+  .hero::after {
+    width: 300px;
+    height: 300px;
+    top: 70px;
+    right: -120px;
+  }
+
+  .reasons {
+    margin-top: -35px;
   }
 
   .reason-panel {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 30px 20px;
+    padding: 22px 16px;
+    border-radius: 25px;
   }
 
-  .product-grid,
-  .voice-grid {
+  .reason-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reason + .reason {
+    border-left: 0;
+    border-top: 1px solid rgba(91,119,91,.25);
+    padding-top: 18px;
+  }
+
+  .reason {
+    padding: 8px;
+  }
+
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-copy {
+    text-align: center;
+  }
+
+  .product-display {
+    min-height: 320px;
   }
 
   .product-image {
-    height: 260px;
+    height: 230px;
+  }
+
+  .product-image.jar {
+    height: 180px;
+  }
+
+  .sales-badge {
+    width: 105px;
+    height: 105px;
+  }
+
+  .sales-badge strong {
+    font-size: 25px;
+  }
+
+  .voice-grid {
+    grid-template-columns: 1fr;
   }
 
   .campaign-panel {
     flex-direction: column;
     text-align: center;
-    padding: 35px 20px;
+    padding: 30px 18px;
   }
 
-  .button {
-    width: 100%;
-    max-width: 320px;
+  .campaign-left {
+    flex-direction: column;
+  }
+
+  .campaign-copy {
+    margin-top: 8px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 </style>
@@ -597,236 +784,266 @@ footer small {
 
 <body>
 
+<div class="page-background"></div>
+
 <header>
-  <a href="#" class="logo"><span>♧</span>PureMélange</a>
+  <a href="#" class="logo">
+    <span class="logo-icon">♧</span>
+    PureMélange
+  </a>
 
-  <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+  <button class="menu-button" id="menuButton"
+    aria-label="メニューを開く" aria-expanded="false">☰</button>
 
-  <nav id="mainNav">
+  <nav class="nav" id="navigation">
     <a href="#concept">ブランドストーリー</a>
     <a href="#products">商品一覧</a>
     <a href="#reasons">こだわり</a>
     <a href="#voices">お客様の声</a>
-    <a href="#faq">よくあるご質問</a>
-    <a href="#campaign" class="nav-cta">商品を見る →</a>
+    <a href="#campaign">よくあるご質問</a>
+    <a href="#products" class="cart-button">🛒 カートを見る</a>
   </nav>
 </header>
 
 <main>
 
-  <!-- ファーストビュー -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="eyebrow">PURE BEAUTY, PURE NATURE</p>
-      <h1>肌にも、地球にも、<br>やさしい選択を。</h1>
-      <p class="hero-copy">
-        美しさと、やさしさを両立した<br>
-        オーガニックスキンケア。
-      </p>
-      <a href="#products" class="button">商品を見てみる <span>→</span></a>
-      <p class="hero-note">自然の恵みを、毎日のスキンケアに。</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero" id="concept">
 
-  <!-- 選ばれる理由 -->
-  <section class="reasons" id="reasons">
-    <div class="container glass reason-panel">
-      <div class="reason-item">
-        <div class="reason-icon">♧</div>
-        <h3>植物由来のこだわり</h3>
-        <p>原料選びから製造まで、<br>肌へのやさしさを大切に。</p>
-      </div>
+  <div class="bubble one"></div>
+  <div class="bubble two"></div>
+  <div class="bubble three"></div>
+  <div class="bubble four"></div>
 
-      <div class="reason-item">
-        <div class="reason-icon">◯</div>
-        <h3>毎日にうるおいを</h3>
-        <p>乾燥が気になる肌に、<br>うるおいを与えるケア。</p>
-      </div>
+  <div class="hero-content">
+    <h1>
+      肌にも、地球にも、<br>
+      やさしい選択を。
+    </h1>
 
-      <div class="reason-item">
-        <div class="reason-icon">🌱</div>
-        <h3>環境への思いやり</h3>
-        <p>素材やパッケージにも、<br>環境への配慮を。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 商品紹介 -->
-  <section class="products" id="products">
-    <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">OUR COLLECTION</p>
-        <h2>自然の力で、毎日を美しく。</h2>
-        <p>肌と向き合う、シンプルなスキンケア習慣。</p>
-      </div>
-
-      <div class="product-grid">
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85" alt="美容液のイメージ">
-          </div>
-          <div class="product-info">
-            <span class="product-label">DAILY SKINCARE 01</span>
-            <h3>オーガニック セラム</h3>
-            <p>肌にうるおいを与え、なめらかな肌印象へ導く美容液。</p>
-            <div class="product-price">商品価格：価格を入力してください</div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85" alt="保湿クリームのイメージ">
-          </div>
-          <div class="product-info">
-            <span class="product-label">DAILY SKINCARE 02</span>
-            <h3>オーガニック クリーム</h3>
-            <p>乾燥しがちな肌をうるおいで包み込む保湿クリーム。</p>
-            <div class="product-price">商品価格：価格を入力してください</div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ブランドメッセージ -->
-  <section class="message" id="concept">
-    <p class="eyebrow" style="color:#e3eadf;">OUR PHILOSOPHY</p>
-    <h2>美しさは、自然とともに。</h2>
-    <p>
-      肌をいたわること。自然を大切にすること。<br>
-      そのどちらも、あきらめない選択を。<br>
-      PureMélangeは、毎日のケアを通じて<br>
-      自分にも地球にも心地よい暮らしを提案します。
+    <p class="hero-copy">
+      美しさと、やさしさを両立した<br>
+      オーガニックコスメ
     </p>
-  </section>
 
-  <!-- お客様の声 -->
-  <section class="voices" id="voices">
-    <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">CUSTOMER VOICE</p>
-        <h2>お客様の声</h2>
-        <p>毎日のスキンケアに寄せられたご感想</p>
-      </div>
+    <a href="#products" class="button">
+      今すぐはじめる <span>→</span>
+    </a>
 
-      <div class="voice-grid">
-        <article class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p>「使い心地が心地よく、毎日のスキンケアが楽しみになりました。」</p>
-          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
-        </article>
+    <p class="hero-note">＼ 初回限定 30%OFF ／</p>
+  </div>
+</section>
 
-        <article class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p>「シンプルなケアを続けたいと思い、使い始めました。」</p>
-          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
-        </article>
+<!-- 3 REASONS -->
+<section class="reasons" id="reasons">
+  <div class="container glass reason-panel">
 
-        <article class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p>「パッケージも素敵で、洗面台に置くのがうれしいです。」</p>
-          <small>※掲載前に実際のお客様の声へ差し替えてください</small>
-        </article>
-      </div>
-    </div>
-  </section>
+    <h2 class="section-mini-title">
+      PureMélangeが選ばれる3つの理由
+    </h2>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">FAQ</p>
-        <h2>よくあるご質問</h2>
-      </div>
+    <div class="reason-grid">
 
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>どのような肌質の人におすすめですか？</span>
-            <span>＋</span>
-          </button>
-          <div class="faq-answer">
-            商品ごとの対象肌質や使用上の注意をご確認ください。
-            肌に合うか心配な場合は、使用前に目立たない部分でお試しください。
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>商品の使用方法を教えてください。</span>
-            <span>＋</span>
-          </button>
-          <div class="faq-answer">
-            商品ごとの正しい使用方法をこちらに記載してください。
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>送料や配送について教えてください。</span>
-            <span>＋</span>
-          </button>
-          <div class="faq-answer">
-            送料・配送日数・配送地域など、実際の配送条件を記載してください。
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 購入CTA -->
-  <section class="campaign" id="campaign">
-    <div class="container glass campaign-panel">
-      <div>
-        <p class="campaign-label">YOUR NEW SKINCARE ROUTINE</p>
-        <h2>今日から、心地よい肌習慣を。</h2>
-        <p class="campaign-copy">
-          PureMélangeのスキンケアを、あなたの毎日に。
+      <article class="reason">
+        <div class="reason-icon">♧</div>
+        <h3>100%オーガニック処方</h3>
+        <p>
+          敏感肌にもやさしい<br>
+          植物由来成分のみを使用
         </p>
-      </div>
-      <a href="#products" class="button">商品を選ぶ <span>→</span></a>
+      </article>
+
+      <article class="reason">
+        <div class="reason-icon">♢</div>
+        <h3>高い保湿力</h3>
+        <p>
+          肌の奥までうるおい、<br>
+          みずみずしい素肌へ
+        </p>
+      </article>
+
+      <article class="reason">
+        <div class="reason-icon">◎</div>
+        <h3>サステナブルな社会へ</h3>
+        <p>
+          地球環境に配慮した<br>
+          エコパッケージを採用
+        </p>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product-section" id="products">
+  <div class="container product-layout">
+
+    <div class="product-copy">
+      <p class="eyebrow">＼ 2026年、もっと、うるおう肌へ ／</p>
+
+      <h2>
+        自然の力で、<br>
+        未来まで美しく。
+      </h2>
+
+      <p>
+        肌本来の美しさを引き出す、<br>
+        オーガニックのチカラ。<br>
+        PureMélangeで、はじめる新しいスキンケア。
+      </p>
+
+      <a href="#products" class="button">
+        商品を詳しく見る <span>→</span>
+      </a>
+    </div>
+
+    <div class="product-display">
+
+      <img
+        class="product-image"
+        src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85"
+        alt="PureMélange オーガニックセラム">
+
+      <img
+        class="product-image jar"
+        src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85"
+        alt="PureMélange オーガニッククリーム">
+
+      <div class="sales-badge">
+        <small>♛ 累計販売数</small>
+        <strong>50万個</strong>
+        <span>突破</span>
+      </div>
+
+      <p class="product-footnote">
+        ※販売実績・商品画像はサンプルです
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="voices" id="voices">
+  <div class="container">
+
+    <h2 class="line-title">お客様の声</h2>
+
+    <div class="voice-grid">
+
+      <article class="voice-card">
+        <img class="voice-avatar"
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+          alt="お客様イメージ">
+        <div>
+          <p>肌がもっちりして<br>化粧ノリが良くなりました！</p>
+          <small>30代・女性</small>
+          <div class="stars">★★★★★</div>
+        </div>
+      </article>
+
+      <article class="voice-card">
+        <img class="voice-avatar"
+          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+          alt="お客様イメージ">
+        <div>
+          <p>敏感肌でも安心して<br>使えるのが嬉しいです。</p>
+          <small>40代・女性</small>
+          <div class="stars">★★★★★</div>
+        </div>
+      </article>
+
+      <article class="voice-card">
+        <img class="voice-avatar"
+          src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80"
+          alt="お客様イメージ">
+        <div>
+          <p>香りが自然で、<br>毎日のケアが楽しみに。</p>
+          <small>20代・女性</small>
+          <div class="stars">★★★★★</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section class="campaign" id="campaign">
+  <div class="container glass campaign-panel">
+
+    <div class="campaign-left">
+      <div>
+        <div class="campaign-ribbon">初回限定</div>
+      </div>
+
+      <div class="discount">
+        30<span>%OFF</span>
+      </div>
+    </div>
+
+    <div class="campaign-copy">
+      <h3>今だけの特別キャンペーン</h3>
+      <p>はじめての方限定で、30%OFF</p>
+    </div>
+
+    <div class="campaign-action">
+      <a href="#products" class="button">
+        今すぐ申し込む <span>→</span>
+      </a>
+      <small>※お一人様1回限り（条件は要確認）</small>
+    </div>
+
+  </div>
+</section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">♧ PureMélange</div>
-  <div class="footer-links">
-    <a href="#concept">ブランドについて</a>
-    <a href="#products">商品一覧</a>
-    <a href="#">特定商取引法に基づく表記</a>
-    <a href="#">プライバシーポリシー</a>
-    <a href="#">お問い合わせ</a>
+  <div class="container footer-inner">
+
+    <a href="#" class="footer-logo">♧ PureMélange</a>
+
+    <div class="footer-links">
+      <a href="#">会社概要</a>
+      <a href="#">特定商取引法に基づく表示</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+
+    <div class="socials">
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="X">𝕏</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </div>
+
   </div>
-  <small>© 2026 PureMélange. All rights reserved.</small>
+
+  <p class="copyright">
+    © 2026 PureMélange. All rights reserved.
+  </p>
 </footer>
 
 <script>
-// スマートフォン用メニュー
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
+// スマートフォンメニュー
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', isOpen);
-  menuToggle.textContent = isOpen ? '×' : '☰';
+menuButton.addEventListener("click", () => {
+  const opened = navigation.classList.toggle("open");
+
+  menuButton.textContent = opened ? "×" : "☰";
+  menuButton.setAttribute("aria-expanded", opened);
 });
 
-// メニュー選択後に閉じる
-mainNav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.textContent = '☰';
-  });
-});
-
-// FAQの開閉
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = button.closest('.faq-item');
-    item.classList.toggle('active');
+// リンク選択時にメニューを閉じる
+navigation.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navigation.classList.remove("open");
+    menuButton.textContent = "☰";
+    menuButton.setAttribute("aria-expanded", "false");
   });
 });
 </script>
